@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PocketChampion 宝可梦图鉴大全 - 精灵图鉴属性种族值查询</title>
+  <meta name="description" content="宝可梦图鉴与精灵图鉴在线查询：前代精灵中文名称、类型徽章、身高体重、特性、种族值与图鉴描述一页看全，支持搜索与属性筛选，口袋妖怪收集党必备的下载与礼包码攻略站。">
+  <meta name="keywords" content="PocketChampion,宝可梦图鉴,精灵图鉴,宝可梦手游,属性种族值,精灵收集,口袋妖怪,手游下载,礼包码,兑换码">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="alternate" hreflang="en" href="https://www.PocketChampion.org/pokemon.html">
+  <link rel="alternate" hreflang="es" href="https://es.PocketChampion.org/pokemon.html">
+  <link rel="alternate" hreflang="pt" href="https://pt.PocketChampion.org/pokemon.html">
+  <link rel="alternate" hreflang="zh-cn" href="https://zh.PocketChampion.org/pokemon.html">
+  <link rel="alternate" hreflang="zh-tw" href="https://zhtw.PocketChampion.org/pokemon.html">
+  <link rel="alternate" hreflang="ko" href="https://ko.PocketChampion.org/pokemon.html">
+  <link rel="alternate" hreflang="fr" href="https://fr.PocketChampion.org/pokemon.html">
+  <link rel="alternate" hreflang="de" href="https://de.PocketChampion.org/pokemon.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.PocketChampion.org/pokemon.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    :root{--paper:#F5F0E6;--paper-2:#EFE6D6;--pale:#FBF7EF;--ink:#2B2620;--ink-2:#201C17;--soft:#6B6255;--cinnabar:#B03A2E;--cinnabar-2:#8E2E24;--gold:#A67C3D;--line:rgba(43,38,32,.14);--shadow:0 18px 50px rgba(43,38,32,.12)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}html,body{overflow-x:hidden}
+    body{margin:0;font-family:'Noto Sans SC',sans-serif;color:var(--ink);background:var(--paper);line-height:1.8;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}img{max-width:100%;display:block;height:auto}
+    :focus-visible{outline:3px solid var(--cinnabar);outline-offset:2px;border-radius:6px}
+    .wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+    .serif{font-family:'Noto Serif SC',serif}.brush{font-family:'Ma Shan Zheng',cursive;font-weight:400}
+    .paper{background-color:var(--paper);background-image:radial-gradient(rgba(43,38,32,.045) 1px,transparent 1px);background-size:22px 22px}
+    .stamp{display:inline-flex;align-items:center;gap:6px;padding:3px 14px 3px 12px;background:var(--cinnabar);color:#FBF7EF;font-size:13px;font-weight:700;letter-spacing:.22em;border-radius:5px;box-shadow:0 0 0 1px rgba(142,46,36,.4),3px 3px 0 rgba(43,38,32,.18);transform:rotate(-1.2deg)}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(245,240,230,.93);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav-inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:10px;font-family:'Noto Serif SC',serif;font-weight:900;font-size:18px;letter-spacing:.02em;white-space:nowrap}
+    .brand img{height:36px;width:auto}
+    .links{display:flex;align-items:center;gap:18px;font-size:14.5px}
+    .links a:not(.btn-dl){color:#4A443B;padding:6px 2px;position:relative}
+    .links a:not(.btn-dl)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--cinnabar);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+    .links a:not(.btn-dl):hover,.links a.active{color:var(--cinnabar)}
+    .links a.active::after{transform:scaleX(1)}
+    .btn-dl{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;min-width:88px;padding:10px 18px;background:var(--cinnabar);color:#FBF7EF;font-weight:800;border-radius:10px;box-shadow:0 0 0 1px rgba(142,46,36,.35),2px 3px 0 rgba(43,38,32,.2);font-size:14px}
+    .btn-dl:hover{background:var(--cinnabar-2)}
+    .lang{border:1px solid var(--line);background:var(--pale);color:var(--ink);padding:8px 10px;border-radius:8px;font-size:12.5px;font-family:'Noto Sans SC',sans-serif;max-width:132px}
+    .menu-btn{display:none;background:none;border:1px solid var(--line);font-size:20px;width:44px;height:44px;border-radius:10px;color:var(--ink);align-items:center;justify-content:center}
+    .page-header{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--paper-2),var(--paper));border-bottom:1px solid var(--line)}
+    .page-header .ink{position:absolute;inset:0;background:url('images/SimplifiedChinese/2.jpg') center/cover no-repeat;filter:saturate(.3) contrast(.95);opacity:.14;mix-blend-mode:multiply}
+    .page-header .mountains{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:140px}
+    .page-header .wrap{position:relative;z-index:2;padding:64px 0 96px}
+    .page-header h1{font-family:'Ma Shan Zheng',cursive;font-size:clamp(36px,6vw,68px);font-weight:400;line-height:1.15;margin:18px 0 14px;max-width:840px}
+    .page-header p{font-size:clamp(15px,1.8vw,18px);max-width:680px;color:var(--soft)}
+    .src-note{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:rgba(166,124,61,.08);border:1px solid rgba(166,124,61,.35);color:#7A5A28;font-size:13px;padding:6px 14px;border-radius:999px}
+    .section{padding:60px 0 80px}
+    .toolbar{display:flex;flex-direction:column;gap:16px;margin-bottom:26px}
+    .search{display:flex;align-items:center;gap:10px;background:var(--pale);border:1px solid var(--line);border-radius:12px;padding:4px 6px 4px 16px;max-width:520px;box-shadow:0 6px 20px rgba(43,38,32,.06)}
+    .search i{color:var(--soft)}
+    .search input{flex:1;border:0;background:none;font:inherit;color:var(--ink);padding:12px 6px;min-height:44px;font-size:15px}
+    .search input:focus{outline:none}
+    .search .clear{background:none;border:0;color:var(--soft);font-size:16px;width:40px;height:40px;cursor:pointer}
+    .type-filter{display:flex;flex-wrap:wrap;gap:10px}
+    .type-btn{border:1px solid var(--line);background:var(--pale);color:#4A443B;padding:7px 16px;border-radius:999px;font-size:13.5px;font-weight:600;cursor:pointer;transition:all .2s}
+    .type-btn:hover{border-color:var(--cinnabar);color:var(--cinnabar)}
+    .type-btn.active{background:var(--cinnabar);border-color:var(--cinnabar);color:#FBF7EF;box-shadow:0 0 0 1px rgba(142,46,36,.35)}
+    .count-line{color:var(--soft);font-size:13.5px;margin-bottom:16px}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .pcard{background:var(--pale);border:1px solid var(--line);border-radius:16px;padding:20px 14px 18px;text-align:center;cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
+    .pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .pcard::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,var(--cinnabar),transparent);opacity:0;transition:opacity .2s}
+    .pcard:hover::after{opacity:.8}
+    .pcard .num{font-family:'Noto Serif SC',serif;font-size:12.5px;color:var(--soft);letter-spacing:.06em}
+    .pcard img{width:96px;height:96px;object-fit:contain;margin:10px auto 8px;filter:drop-shadow(0 6px 12px rgba(43,38,32,.18))}
+    .pcard h3{font-family:'Noto Serif SC',serif;font-size:18px;margin:0 0 8px}
+    .pcard .name-en{font-size:12px;color:var(--soft)}
+    .types{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+    .type{display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:700;color:#fff;letter-spacing:.04em}
+    .type-normal{background:#8F8C7E}.type-fire{background:#C05A22}.type-water{background:#3E6FA8}.type-electric{background:#B28A1E}.type-grass{background:#4E8544}.type-ice{background:#5E93A5}.type-fighting{background:#9A4A32}.type-poison{background:#7A4E8C}.type-ground{background:#9C7A3C}.type-flying{background:#6E7D94}.type-psychic{background:#9C4E6E}.type-bug{background:#7C8A32}.type-rock{background:#7E7466}.type-ghost{background:#5E5580}.type-dragon{background:#5E5E96}.type-dark{background:#4A4642}.type-steel{background:#7E8A94}.type-fairy{background:#A86A8C}
+    .fallback-tag{display:inline-block;background:rgba(166,124,61,.12);color:#7A5A28;font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px;margin-left:6px;vertical-align:2px}
+    .status{text-align:center;color:var(--soft);padding:40px 0;font-size:15px}
+    .modal{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(32,28,23,.55);backdrop-filter:blur(4px)}
+    .modal.open{display:flex}
+    .modal-card{background:var(--pale);border:1px solid var(--line);border-radius:18px;max-width:560px;width:100%;max-height:88vh;overflow-y:auto;padding:30px 32px;position:relative;box-shadow:var(--shadow)}
+    .modal-close{position:absolute;right:14px;top:14px;width:44px;height:44px;border:1px solid var(--line);background:var(--paper);border-radius:10px;font-size:18px;color:var(--ink);cursor:pointer}
+    .modal-head{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+    .modal-head img{width:130px;height:130px;object-fit:contain;filter:drop-shadow(0 8px 16px rgba(43,38,32,.2))}
+    .modal-head h3{font-family:'Ma Shan Zheng',cursive;font-size:34px;font-weight:400;margin:0;line-height:1.2}
+    .modal-head .num{color:var(--soft);font-size:14px;letter-spacing:.08em}
+    .modal h4{font-family:'Noto Serif SC',serif;font-size:16px;margin:22px 0 10px;color:var(--ink);letter-spacing:.06em;position:relative;padding-left:14px}
+    .modal h4::before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:3px;background:var(--cinnabar);border-radius:2px}
+    .kv{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px}
+    .kv div{background:rgba(43,38,32,.04);border-radius:10px;padding:10px 14px}
+    .kv span{display:block;font-size:12px;color:var(--soft)}
+    .kv b{font-size:14.5px}
+    .stats{display:grid;gap:8px}
+    .stats .row{display:grid;grid-template-columns:84px 1fr 46px;align-items:center;gap:10px;font-size:13.5px}
+    .stats .row span:last-child{text-align:right;color:var(--soft);font-family:'Noto Serif SC',serif}
+    .bar{height:9px;background:rgba(43,38,32,.09);border-radius:5px;overflow:hidden}
+    .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--cinnabar),var(--gold));border-radius:5px}
+    .flavor{color:var(--soft);font-size:14.5px;background:rgba(43,38,32,.04);border-radius:12px;padding:14px 16px;margin-top:6px}
+    .modal .btn{margin-top:18px;width:100%}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:10px;font-weight:800;min-height:48px;font-size:15px}
+    .btn.cinnabar{background:var(--cinnabar);color:#FBF7EF;box-shadow:0 0 0 1px rgba(142,46,36,.35),3px 3px 0 rgba(43,38,32,.18)}
+    .btn.cinnabar:hover{background:var(--cinnabar-2)}
+    .cta-section{text-align:center;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--paper-2),var(--paper));border-top:1px solid var(--line)}
+    .cta-section .mountains{position:absolute;left:0;right:0;bottom:0;width:100%;height:110px;opacity:.5}
+    .cta-section .wrap{position:relative;z-index:2}
+    .footer{background:#1C1915;color:#CFC7B8;padding:56px 0 44px}
+    .footer-grid{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:30px}
+    .footer h3{color:#F5F0E6;margin:0 0 14px;font-family:'Noto Serif SC',serif;font-size:16px;letter-spacing:.08em}
+    .footer a,.footer p{color:#A79E8F;font-size:13.5px}
+    .footer a:hover{color:#E8C37A}
+    .mini-links{display:grid;gap:9px}
+    .footer .bottom{margin-top:40px;padding-top:22px;border-top:1px solid rgba(245,240,230,.12);color:#8A8174;font-size:12.5px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    .mobile{display:none}
+    .mobile-bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(251,247,239,.97);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -8px 30px rgba(43,38,32,.12)}
+    .mobile-bar a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;background:var(--cinnabar);color:#FBF7EF;border-radius:12px;font-weight:800;font-size:16px;box-shadow:0 0 0 1px rgba(142,46,36,.4)}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:768px){
+      body{padding-bottom:74px}
+      .mobile-bar{display:block}
+      .links{display:none}
+      .menu-btn{display:inline-flex}
+      .mobile.open{display:grid;gap:10px;padding:0 0 20px}
+      .mobile .btn-dl{width:100%;justify-content:center}
+      .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+      .pcard img{width:80px;height:80px}
+      .modal-card{padding:24px 20px}
+      .kv{grid-template-columns:1fr 1fr}
+      .footer-grid{grid-template-columns:1fr;gap:24px}
+      .footer .bottom{flex-direction:column}
+    }
+  </style>
+  <meta property="og:title" content="PocketChampion 宝可梦图鉴大全 - 精灵图鉴属性种族值查询">
+  <meta property="og:description" content="宝可梦图鉴与精灵图鉴在线查询：前代精灵中文名称、类型徽章、身高体重、特性、种族值与图鉴描述一页看全，支持搜索与属性筛选，口袋妖怪收集党必备的下载与礼包码攻略站。">
+  <meta property="og:image" content="https://zh.PocketChampion.org/images/SimplifiedChinese/2.jpg">
+  <meta property="og:url" content="https://zh.PocketChampion.org/pokemon.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PocketChampion 宝可梦图鉴大全 - 精灵图鉴属性种族值查询">
+  <meta name="twitter:description" content="宝可梦图鉴与精灵图鉴在线查询：前代精灵中文名称、类型徽章、身高体重、特性、种族值与图鉴描述一页看全，支持搜索与属性筛选，口袋妖怪收集党必备的下载与礼包码攻略站。">
+  <meta name="twitter:image" content="https://zh.PocketChampion.org/images/SimplifiedChinese/2.jpg">
+  <link rel="canonical" href="https://zh.PocketChampion.org/pokemon.html">
+</head>
+<body class="paper">
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html"><img src="images/logo.png" alt="PocketChampion 官网标志"><span>PocketChampion</span></a>
+      <div class="links">
+        <a href="index.html">首页</a>
+        <a class="active" href="pokemon.html">宝可梦</a>
+        <a href="features.html">特色</a>
+        <a href="guides.html">攻略</a>
+        <a href="codes.html">礼包码</a>
+        <a href="articles.html">资讯</a>
+        <a class="btn-dl" href="https://hk.qu06.cn/gtpcsc/?WS5W76WR"><i class="fa fa-download"></i> 下载</a>
+        <select class="lang" onchange="window.location.href=this.value" aria-label="切换语言">
+          <option value="https://www.PocketChampion.org/pokemon.html">English</option>
+          <option value="https://es.PocketChampion.org/pokemon.html">Español</option>
+          <option value="https://pt.PocketChampion.org/pokemon.html">Português</option>
+          <option value="https://zh.PocketChampion.org/pokemon.html" selected>简体中文</option>
+          <option value="https://zhtw.PocketChampion.org/pokemon.html">繁體中文</option>
+          <option value="https://ko.PocketChampion.org/pokemon.html">한국어</option>
+          <option value="https://fr.PocketChampion.org/pokemon.html">Français</option>
+          <option value="https://de.PocketChampion.org/pokemon.html">Deutsch</option>
+        </select>
+      </div>
+      <button class="menu-btn" id="menu-toggle" aria-label="打开菜单"><i class="fa fa-bars"></i></button>
+    </div>
+    <div class="wrap mobile" id="mobile-menu">
+      <a href="index.html">首页</a>
+      <a href="pokemon.html">宝可梦</a>
+      <a href="features.html">特色</a>
+      <a href="guides.html">攻略</a>
+      <a href="codes.html">礼包码</a>
+      <a href="articles.html">资讯</a>
+      <a class="btn-dl" href="https://hk.qu06.cn/gtpcsc/?WS5W76WR">立即下载 PocketChampion</a>
+      <select class="lang" onchange="window.location.href=this.value" aria-label="切换语言">
+        <option value="https://www.PocketChampion.org/pokemon.html">English</option>
+        <option value="https://es.PocketChampion.org/pokemon.html">Español</option>
+        <option value="https://pt.PocketChampion.org/pokemon.html">Português</option>
+        <option value="https://zh.PocketChampion.org/pokemon.html" selected>简体中文</option>
+        <option value="https://zhtw.PocketChampion.org/pokemon.html">繁體中文</option>
+        <option value="https://ko.PocketChampion.org/pokemon.html">한국어</option>
+        <option value="https://fr.PocketChampion.org/pokemon.html">Français</option>
+        <option value="https://de.PocketChampion.org/pokemon.html">Deutsch</option>
+      </select>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="ink" aria-hidden="true"></div>
+    <svg class="mountains" viewBox="0 0 1440 240" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M0,150 L200,55 L380,140 L590,30 L800,135 L1020,60 L1240,150 L1440,95 L1440,240 L0,240 Z" fill="rgba(43,38,32,.07)"/>
+      <path d="M0,200 L240,125 L470,185 L700,105 L930,175 L1170,120 L1440,185 L1440,240 L0,240 Z" fill="rgba(43,38,32,.12)"/>
+    </svg>
+    <div class="wrap">
+      <span class="stamp">宝可梦图鉴</span>
+      <h1 class="brush">PocketChampion 宝可梦图鉴 · 精灵图鉴查询</h1>
+      <p>前代精灵图鉴在线查询：中文名称、类型、身高体重、特性、种族值与图鉴描述一页看全，支持搜索与属性筛选。</p>
+      <span class="src-note"><i class="fa fa-language" aria-hidden="true"></i> 数据来源语言：简体中文（PokeAPI zh-Hans），个别缺失名称自动回退英文 / 日文</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input id="search" type="search" placeholder="搜索精灵名称（支持中文 / 英文）" aria-label="搜索精灵名称">
+            <button class="clear" id="clear-btn" aria-label="清空搜索"><i class="fa fa-times" aria-hidden="true"></i></button>
+          </div>
+          <div class="type-filter" id="type-filter" role="group" aria-label="按属性筛选"></div>
+        </div>
+        <p class="count-line" id="count-line" aria-live="polite"></p>
+        <div class="grid" id="grid"></div>
+        <div class="status" id="status">正在研墨绘制图鉴…</div>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <svg class="mountains" viewBox="0 0 1440 240" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d="M0,150 L200,55 L380,140 L590,30 L800,135 L1020,60 L1240,150 L1440,95 L1440,240 L0,240 Z" fill="rgba(43,38,32,.06)"/>
+        <path d="M0,200 L240,125 L470,185 L700,105 L930,175 L1170,120 L1440,185 L1440,240 L0,240 Z" fill="rgba(43,38,32,.1)"/>
+      </svg>
+      <div class="wrap">
+        <span class="stamp">入坑图鉴</span>
+        <h2 class="brush" style="font-size:clamp(30px,4vw,48px);margin:14px 0">边查图鉴边领礼包码，下载入坑</h2>
+        <a class="btn cinnabar" href="https://hk.qu06.cn/gtpcsc/?WS5W76WR" style="font-size:17px;padding:16px 32px">立即下载 PocketChampion</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div>
+        <h3>PocketChampion</h3>
+        <p>简体中文水墨站，面向中国大陆玩家整理宝可梦手游下载、礼包码、兑换码与精灵对战攻略。</p>
+        <p style="margin-top:12px"><i class="fa fa-comments-o" aria-hidden="true"></i> <a href="https://discord.gg/pKYe2FfzuQ" rel="noopener" target="_blank">加入官方 Discord 社区</a></p>
+      </div>
+      <div>
+        <h3>站内导航</h3>
+        <div class="mini-links">
+          <a href="index.html">首页</a>
+          <a href="features.html">特色玩法</a>
+          <a href="guides.html">攻略库</a>
+          <a href="codes.html">礼包码</a>
+          <a href="articles.html">资讯</a>
+        </div>
+      </div>
+      <div>
+        <h3>热门搜索</h3>
+        <p>宝可梦图鉴、精灵图鉴、宝可梦手游下载、礼包码领取、兑换码、精灵收集、精灵对战。</p>
+      </div>
+      <div>
+        <h3>语言</h3>
+        <div class="mini-links">
+          <a href="https://www.PocketChampion.org/pokemon.html">English</a>
+          <a href="https://es.PocketChampion.org/pokemon.html">Español</a>
+          <a href="https://pt.PocketChampion.org/pokemon.html">Português</a>
+          <a href="https://zh.PocketChampion.org/pokemon.html">简体中文</a>
+          <a href="https://zhtw.PocketChampion.org/pokemon.html">繁體中文</a>
+          <a href="https://ko.PocketChampion.org/pokemon.html">한국어</a>
+          <a href="https://fr.PocketChampion.org/pokemon.html">Français</a>
+          <a href="https://de.PocketChampion.org/pokemon.html">Deutsch</a>
+        </div>
+      </div>
+    </div>
+    <div class="wrap bottom">
+      <span>&copy; 2026 PocketChampion. 保留所有权利。</span>
+      <span>当前域名：zh.PocketChampion.org</span>
+    </div>
+  </footer>
+
+  <div class="mobile-bar">
+    <a href="https://hk.qu06.cn/gtpcsc/?WS5W76WR"><i class="fa fa-download" aria-hidden="true"></i> 立即下载 PocketChampion</a>
+  </div>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="关闭详情"><i class="fa fa-times" aria-hidden="true"></i></button>
+      <div class="modal-head">
+        <img id="modal-img" src="" alt="" width="130" height="130">
+        <div>
+          <h3 id="modal-name" class="brush"></h3>
+          <span class="num" id="modal-num"></span>
+          <div class="types" id="modal-types" style="margin-top:10px"></div>
+        </div>
+      </div>
+      <h4>基础数据</h4>
+      <div class="kv">
+        <div><span>身高</span><b id="modal-height"></b></div>
+        <div><span>体重</span><b id="modal-weight"></b></div>
+        <div><span>特性</span><b id="modal-abilities"></b></div>
+        <div><span>图鉴编号</span><b id="modal-id"></b></div>
+      </div>
+      <h4>种族值</h4>
+      <div class="stats" id="modal-stats"></div>
+      <h4>图鉴描述</h4>
+      <p class="flavor" id="modal-flavor"></p>
+      <a class="btn cinnabar" href="https://hk.qu06.cn/gtpcsc/?WS5W76WR">下载 PocketChampion 开启收集</a>
+    </div>
+  </div>
+
+  <script src="pokeapi.js"></script>
+  <script>
+    (function () {
+      var TYPES = ['全部','草','火','水','电','普通','毒','飞行','虫','地面','岩石','超能力','冰','格斗','幽灵','龙','恶','钢','妖精'];
+      var TYPE_EN = {
+        '草':'grass','火':'fire','水':'water','电':'electric','普通':'normal','毒':'poison','飞行':'flying',
+        '虫':'bug','地面':'ground','岩石':'rock','超能力':'psychic','冰':'ice','格斗':'fighting','幽灵':'ghost',
+        '龙':'dragon','恶':'dark','钢':'steel','妖精':'fairy'
+      };
+      var STAT_CN = {hp:'体力',attack:'攻击',defense:'防御','special-attack':'特攻','special-defense':'特防',speed:'速度'};
+      var IS_CN = /[\u4e00-\u9fff]/;
+      var LANG = 'zh';
+
+      var grid = document.getElementById('grid');
+      var statusEl = document.getElementById('status');
+      var countLine = document.getElementById('count-line');
+      var searchInput = document.getElementById('search');
+      var clearBtn = document.getElementById('clear-btn');
+      var filterEl = document.getElementById('type-filter');
+      var modal = document.getElementById('modal');
+      var currentType = '全部';
+      var allPokemon = []; // {id, name, enName, img, types:[en], localName, isFallback}
+
+      function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+
+      function buildFilters(){
+        TYPES.forEach(function(t){
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'type-btn' + (t === '全部' ? ' active' : '');
+          b.textContent = t;
+          b.setAttribute('data-type', t);
+          b.addEventListener('click', function(){
+            currentType = t;
+            Array.prototype.forEach.call(filterEl.children, function(c){c.classList.remove('active');});
+            b.classList.add('active');
+            render();
+          });
+          filterEl.appendChild(b);
+        });
+      }
+
+      function typeBadges(types){
+        return types.map(function(t){
+          var cn = Object.keys(TYPE_EN).find(function(k){return TYPE_EN[k] === t;}) || t;
+          return '<span class="type type-' + t + '">' + cn + '</span>';
+        }).join('');
+      }
+
+      function imgOf(pokemon){
+        return (pokemon.sprites && pokemon.sprites.other && pokemon.sprites.other['official-artwork'] && pokemon.sprites.other['official-artwork'].front_default) ||
+               (pokemon.sprites && pokemon.sprites.front_default) || '';
+      }
+
+      function isCnName(name){ return IS_CN.test(name || ''); }
+
+      function render(){
+        var q = searchInput.value.trim().toLowerCase();
+        var list = allPokemon.filter(function(p){
+          if (currentType !== '全部' && p.types.indexOf(TYPE_EN[currentType]) === -1) return false;
+          if (!q) return true;
+          return (p.localName || '').toLowerCase().indexOf(q) !== -1 || p.enName.toLowerCase().indexOf(q) !== -1;
+        });
+        countLine.textContent = '共收录 ' + allPokemon.length + ' 只 · 当前显示 ' + list.length + ' 只';
+        if (!list.length){
+          grid.innerHTML = '';
+          statusEl.textContent = '未找到相关精灵，换个关键词或属性试试。';
+          return;
+        }
+        statusEl.textContent = '';
+        grid.innerHTML = list.map(function(p){
+          var fb = p.isFallback ? '<span class="fallback-tag">英文名</span>' : '';
+          return '<div class="pcard" data-id="' + p.id + '" role="button" tabindex="0" aria-label="查看 ' + esc(p.localName) + ' 详情">' +
+            '<span class="num">No.' + String(p.id).padStart(3,'0') + '</span>' +
+            '<img src="' + p.img + '" alt="' + esc(p.localName) + ' 官方图片" loading="lazy" width="96" height="96">' +
+            '<h3>' + esc(p.localName) + fb + '</h3>' +
+            '<span class="name-en">' + esc(p.enName) + '</span>' +
+            '<div class="types">' + typeBadges(p.types) + '</div>' +
+          '</div>';
+        }).join('');
+      }
+
+      function openModal(id){
+        var p = allPokemon.find(function(x){return x.id === id;});
+        if (!p) return;
+        var modalEls = {
+          img: document.getElementById('modal-img'),
+          name: document.getElementById('modal-name'),
+          num: document.getElementById('modal-num'),
+          types: document.getElementById('modal-types'),
+          height: document.getElementById('modal-height'),
+          weight: document.getElementById('modal-weight'),
+          abilities: document.getElementById('modal-abilities'),
+          id: document.getElementById('modal-id'),
+          stats: document.getElementById('modal-stats'),
+          flavor: document.getElementById('modal-flavor')
+        };
+        modalEls.img.src = p.img;
+        modalEls.img.alt = p.localName + ' 官方图片';
+        modalEls.name.textContent = p.localName + (p.isFallback ? '（英文名）' : '');
+        modalEls.num.textContent = '图鉴编号 No.' + String(p.id).padStart(3,'0');
+        modalEls.types.innerHTML = typeBadges(p.types);
+        modalEls.height.textContent = (p.pokemon.height / 10).toFixed(1) + ' m';
+        modalEls.weight.textContent = (p.pokemon.weight / 10).toFixed(1) + ' kg';
+        modalEls.abilities.textContent = p.pokemon.abilities.map(function(a){return a.ability.name;}).join(' / ');
+        modalEls.id.textContent = '#' + String(p.id).padStart(3,'0');
+        var maxStat = 180;
+        modalEls.stats.innerHTML = p.pokemon.stats.map(function(s){
+          var cn = STAT_CN[s.stat.name] || s.stat.name;
+          var w = Math.min(100, Math.round(s.base_stat / maxStat * 100));
+          return '<div class="row"><span>' + cn + '</span><div class="bar"><i style="width:' + w + '%"></i></div><span>' + s.base_stat + '</span></div>';
+        }).join('');
+        var flavor = PokeAPI.getFlavorText(p.species, LANG);
+        modalEls.flavor.textContent = flavor || '（暂无中文图鉴描述，请以游戏内信息为准）';
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        document.getElementById('modal-close').focus();
+      }
+
+      function closeModal(){
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      async function loadAll(){
+        try {
+          var list = await PokeAPI.fetchPokemonList(30, 0);
+          var tasks = list.results.map(function(item, i){
+            return PokeAPI.fetchPokemonDetail(item.name).then(function(detail){
+              var pokemon = detail.pokemon;
+              var species = detail.species;
+              var localName = PokeAPI.getLocalizedName(species, LANG);
+              var fallback = !isCnName(localName);
+              if (fallback) { localName = pokemon.name; }
+              allPokemon.push({
+                id: pokemon.id,
+                enName: pokemon.name,
+                localName: localName || pokemon.name,
+                isFallback: fallback,
+                img: imgOf(pokemon),
+                types: pokemon.types.map(function(t){return t.type.name;}),
+                pokemon: pokemon,
+                species: species
+              });
+            }).catch(function(e){
+              statusEl.textContent = '部分精灵加载失败：' + e.message;
+            });
+          });
+          await Promise.all(tasks);
+          allPokemon.sort(function(a,b){return a.id - b.id;});
+          render();
+          statusEl.textContent = '';
+        } catch (e) {
+          statusEl.textContent = '图鉴加载失败，请检查网络后刷新重试。';
+        }
+      }
+
+      grid.addEventListener('click', function(e){
+        var card = e.target.closest('.pcard');
+        if (card) openModal(parseInt(card.getAttribute('data-id'), 10));
+      });
+      grid.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ') {
+          var card = e.target.closest('.pcard');
+          if (card){ e.preventDefault(); openModal(parseInt(card.getAttribute('data-id'), 10)); }
+        }
+      });
+      document.getElementById('modal-close').addEventListener('click', closeModal);
+      modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
+      searchInput.addEventListener('input', render);
+      clearBtn.addEventListener('click', function(){ searchInput.value = ''; render(); searchInput.focus(); });
+      document.getElementById('menu-toggle').addEventListener('click',function(){document.getElementById('mobile-menu').classList.toggle('open');});
+
+      buildFilters();
+      loadAll();
+    })();
+  </script>
+</body>
+</html>
