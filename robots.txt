@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://zh.PocketChampion.org/sitemap.xml
+
+# IndexNow key: d7b2f5a9c3e10864d7b2f5a9c3e10864

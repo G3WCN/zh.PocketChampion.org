@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -16,23 +15,20 @@
   <link rel="alternate" hreflang="fr" href="https://fr.PocketChampion.org/articles/article1.html">
   <link rel="alternate" hreflang="de" href="https://de.PocketChampion.org/articles/article1.html">
   <link rel="alternate" hreflang="x-default" href="https://www.PocketChampion.org/articles/article1.html">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     :root{--paper:#F5F0E6;--paper-2:#EFE6D6;--pale:#FBF7EF;--ink:#2B2620;--ink-2:#201C17;--soft:#6B6255;--cinnabar:#B03A2E;--cinnabar-2:#8E2E24;--gold:#A67C3D;--line:rgba(43,38,32,.14);--shadow:0 18px 50px rgba(43,38,32,.12)}
     *{box-sizing:border-box}html{scroll-behavior:smooth}html,body{overflow-x:hidden}
-    body{margin:0;font-family:'Noto Sans SC',sans-serif;color:var(--ink);background:var(--paper);line-height:1.8;-webkit-font-smoothing:antialiased}
+    body{margin:0;font-family:'PingFang SC','Microsoft YaHei','Hiragino Sans GB','Noto Sans CJK SC',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.8;-webkit-font-smoothing:antialiased}
     a{color:inherit;text-decoration:none}img{max-width:100%;display:block;height:auto}
     :focus-visible{outline:3px solid var(--cinnabar);outline-offset:2px;border-radius:6px}
     .wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
-    .serif{font-family:'Noto Serif SC',serif}.brush{font-family:'Ma Shan Zheng',cursive;font-weight:400}
+    .serif{font-family:'Songti SC','SimSun','Noto Serif CJK SC',serif}.brush{font-family:'Kaiti SC','KaiTi','STKaiti',cursive;font-weight:400}
     .paper{background-color:var(--paper);background-image:radial-gradient(rgba(43,38,32,.045) 1px,transparent 1px);background-size:22px 22px}
     .stamp{display:inline-flex;align-items:center;gap:6px;padding:3px 14px 3px 12px;background:var(--cinnabar);color:#FBF7EF;font-size:13px;font-weight:700;letter-spacing:.22em;border-radius:5px;box-shadow:0 0 0 1px rgba(142,46,36,.4),3px 3px 0 rgba(43,38,32,.18);transform:rotate(-1.2deg)}
     .nav{position:sticky;top:0;z-index:50;background:rgba(245,240,230,.93);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
     .nav-inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-    .brand{display:flex;align-items:center;gap:10px;font-family:'Noto Serif SC',serif;font-weight:900;font-size:18px;letter-spacing:.02em;white-space:nowrap}
+    .brand{display:flex;align-items:center;gap:10px;font-family:'Songti SC','SimSun','Noto Serif CJK SC',serif;font-weight:900;font-size:18px;letter-spacing:.02em;white-space:nowrap}
     .brand img{height:36px;width:auto}
     .links{display:flex;align-items:center;gap:18px;font-size:14.5px}
     .links a:not(.btn-dl){color:#4A443B;padding:6px 2px;position:relative}
@@ -41,35 +37,35 @@
     .links a.active::after{transform:scaleX(1)}
     .btn-dl{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;min-width:88px;padding:10px 18px;background:var(--cinnabar);color:#FBF7EF;font-weight:800;border-radius:10px;box-shadow:0 0 0 1px rgba(142,46,36,.35),2px 3px 0 rgba(43,38,32,.2);font-size:14px}
     .btn-dl:hover{background:var(--cinnabar-2)}
-    .lang{border:1px solid var(--line);background:var(--pale);color:var(--ink);padding:8px 10px;border-radius:8px;font-size:12.5px;font-family:'Noto Sans SC',sans-serif;max-width:132px}
+    .lang{border:1px solid var(--line);background:var(--pale);color:var(--ink);padding:8px 10px;border-radius:8px;font-size:12.5px;font-family:'PingFang SC','Microsoft YaHei','Hiragino Sans GB','Noto Sans CJK SC',system-ui,sans-serif;max-width:132px}
     .menu-btn{display:none;background:none;border:1px solid var(--line);font-size:20px;width:44px;height:44px;border-radius:10px;color:var(--ink);align-items:center;justify-content:center}
     .page-header{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--paper-2),var(--paper));border-bottom:1px solid var(--line)}
     .page-header .mountains{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:140px}
     .page-header .wrap{position:relative;z-index:2;padding:60px 0 92px;display:grid;grid-template-columns:1fr .62fr;gap:36px;align-items:center}
-    .page-header h1{font-family:'Ma Shan Zheng',cursive;font-size:clamp(32px,5vw,58px);font-weight:400;line-height:1.18;margin:16px 0 12px;max-width:760px}
+    .page-header h1{font-family:'Kaiti SC','KaiTi','STKaiti',cursive;font-size:clamp(32px,5vw,58px);font-weight:400;line-height:1.18;margin:16px 0 12px;max-width:760px}
     .page-header p{font-size:clamp(14px,1.7vw,17px);max-width:640px;color:var(--soft)}
     .page-header .cover{border-radius:16px;border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden}
     .page-header .cover img{width:100%;height:280px;object-fit:cover}
     .section{padding:56px 0 76px}
     .article-wrap{display:grid;grid-template-columns:1fr 280px;gap:28px;align-items:start}
     .article-card{background:var(--pale);border:1px solid var(--line);border-radius:16px;padding:34px 36px;box-shadow:0 8px 28px rgba(43,38,32,.06)}
-    .article-card h2{font-family:'Noto Serif SC',serif;font-size:22px;margin:28px 0 10px;line-height:1.4;position:relative;padding-left:16px}
+    .article-card h2{font-family:'Songti SC','SimSun','Noto Serif CJK SC',serif;font-size:22px;margin:28px 0 10px;line-height:1.4;position:relative;padding-left:16px}
     .article-card h2::before{content:"";position:absolute;left:0;top:7px;bottom:7px;width:4px;background:var(--cinnabar);border-radius:2px}
     .article-card h2:first-child{margin-top:0}
     .article-card p{color:var(--soft);margin:0 0 12px}
     .article-card ul,.article-card ol{margin:0 0 12px;padding-left:22px;color:var(--soft)}
     .article-card li{margin-bottom:6px}
-    .article-card code{font-family:'Noto Serif SC',serif;background:rgba(176,58,46,.07);border:1px dashed rgba(176,58,46,.35);padding:2px 10px;border-radius:6px;color:var(--cinnabar);font-weight:700}
+    .article-card code{font-family:'Songti SC','SimSun','Noto Serif CJK SC',serif;background:rgba(176,58,46,.07);border:1px dashed rgba(176,58,46,.35);padding:2px 10px;border-radius:6px;color:var(--cinnabar);font-weight:700}
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:10px;font-weight:800;min-height:48px;font-size:15px}
     .btn.cinnabar{background:var(--cinnabar);color:#FBF7EF;box-shadow:0 0 0 1px rgba(142,46,36,.35),3px 3px 0 rgba(43,38,32,.18)}
     .btn.cinnabar:hover{background:var(--cinnabar-2)}
     .related{display:grid;gap:12px;position:sticky;top:84px}
-    .related h2{font-family:'Noto Serif SC',serif;font-size:17px;margin:0;color:var(--ink);letter-spacing:.06em}
+    .related h2{font-family:'Songti SC','SimSun','Noto Serif CJK SC',serif;font-size:17px;margin:0;color:var(--ink);letter-spacing:.06em}
     .related a{display:block;background:var(--pale);border:1px solid var(--line);border-radius:12px;padding:13px 16px;font-weight:700;font-size:13.5px;color:#4A443B;transition:color .2s,border-color .2s}
     .related a:hover{color:var(--cinnabar);border-color:var(--cinnabar)}
     .footer{background:#1C1915;color:#CFC7B8;padding:56px 0 44px}
     .footer-grid{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:30px}
-    .footer h3{color:#F5F0E6;margin:0 0 14px;font-family:'Noto Serif SC',serif;font-size:16px;letter-spacing:.08em}
+    .footer h3{color:#F5F0E6;margin:0 0 14px;font-family:'Songti SC','SimSun','Noto Serif CJK SC',serif;font-size:16px;letter-spacing:.08em}
     .footer a,.footer p{color:#A79E8F;font-size:13.5px}
     .footer a:hover{color:#E8C37A}
     .mini-links{display:grid;gap:9px}
@@ -103,11 +99,12 @@
   <meta name="twitter:description" content="宝可梦手游官网下载入口与公测情报整理：礼包码领取、兑换码使用、精灵收集开荒路线，安装 PocketChampion 后先领福利再培养第一支稳定队伍。">
   <meta name="twitter:image" content="https://zh.PocketChampion.org/images/SimplifiedChinese/1.jpg">
   <link rel="canonical" href="https://zh.PocketChampion.org/articles/article1.html">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="theme-color" content="#faf7f2"><meta property="og:site_name" content="PocketChampion"><meta property="og:locale" content="zh_CN"><meta property="og:image:width" content="1400"><meta property="og:image:height" content="788"><meta property="og:image:alt" content="PocketChampion：安卓与 iOS 下载和安装"><link rel="apple-touch-icon" sizes="128x128" href="../images/logo.png"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://zh.PocketChampion.org/#organization","name":"PocketChampion","url":"https://zh.PocketChampion.org/","logo":{"@type":"ImageObject","url":"https://zh.PocketChampion.org/images/logo.png","width":128,"height":128}},{"@type":"WebPage","@id":"https://zh.PocketChampion.org/articles/article1.html#webpage","url":"https://zh.PocketChampion.org/articles/article1.html","name":"宝可梦手游官网下载入口 - PocketChampion 公测礼包码攻略","description":"宝可梦手游官网下载入口与公测情报整理：礼包码领取、兑换码使用、精灵收集开荒路线，安装 PocketChampion 后先领福利再培养第一支稳定队伍。","inLanguage":"zh-CN","isPartOf":{"@id":"https://zh.PocketChampion.org/#website"},"breadcrumb":{"@id":"https://zh.PocketChampion.org/articles/article1.html#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://zh.PocketChampion.org/articles/article1.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://zh.PocketChampion.org/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://zh.PocketChampion.org/articles.html"},{"@type":"ListItem","position":3,"name":"PocketChampion 下载入口与公测情报整理","item":"https://zh.PocketChampion.org/articles/article1.html"}]},{"@type":"Article","@id":"https://zh.PocketChampion.org/articles/article1.html#article","headline":"PocketChampion 下载入口与公测情报整理","description":"宝可梦手游官网下载入口与公测情报整理：礼包码领取、兑换码使用、精灵收集开荒路线，安装 PocketChampion 后先领福利再培养第一支稳定队伍。","image":["https://zh.PocketChampion.org/images/SimplifiedChinese/1.jpg"],"inLanguage":"zh-CN","datePublished":"2026-08-15T09:00:00+02:00","dateModified":"2026-11-04T09:00:00+02:00","author":{"@id":"https://zh.PocketChampion.org/#organization"},"publisher":{"@id":"https://zh.PocketChampion.org/#organization"},"mainEntityOfPage":{"@id":"https://zh.PocketChampion.org/articles/article1.html#webpage"}}]}</script>
 </head>
 <body class="paper">
   <nav class="nav">
     <div class="wrap nav-inner">
-      <a class="brand" href="../index.html"><img src="../images/logo.png" alt="PocketChampion 官网标志"><span>PocketChampion</span></a>
+      <a class="brand" href="../index.html"><picture><source type="image/webp" srcset="../images/logo.webp"></source><img src="../images/logo.png" alt="PocketChampion 官网标志" width="128" height="128" loading="lazy" decoding="async"></picture><span>PocketChampion</span></a>
       <div class="links">
         <a href="../index.html">首页</a>
         <a href="../pokemon.html">宝可梦</a>
@@ -151,9 +148,9 @@
   </nav>
 
   <header class="page-header">
-    <svg class="mountains" viewBox="0 0 1440 240" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-      <path d="M0,150 L200,55 L380,140 L590,30 L800,135 L1020,60 L1240,150 L1440,95 L1440,240 L0,240 Z" fill="rgba(43,38,32,.07)"/>
-      <path d="M0,200 L240,125 L470,185 L700,105 L930,175 L1170,120 L1440,185 L1440,240 L0,240 Z" fill="rgba(43,38,32,.12)"/>
+    <svg class="mountains" viewbox="0 0 1440 240" preserveaspectratio="none" aria-hidden="true" focusable="false">
+      <path d="M0,150 L200,55 L380,140 L590,30 L800,135 L1020,60 L1240,150 L1440,95 L1440,240 L0,240 Z" fill="rgba(43,38,32,.07)"></path>
+      <path d="M0,200 L240,125 L470,185 L700,105 L930,175 L1170,120 L1440,185 L1440,240 L0,240 Z" fill="rgba(43,38,32,.12)"></path>
     </svg>
     <div class="wrap">
       <div>
@@ -161,7 +158,7 @@
         <h1 class="brush">PocketChampion 下载入口与公测情报整理</h1>
         <p>从官网入口、手游下载、礼包码领取到开服后第一天要做什么，给本土玩家一份更直接的入坑指南。</p>
       </div>
-      <div class="cover"><img src="../images/SimplifiedChinese/2.jpg" alt="PocketChampion 公测公告与下载入口"></div>
+      <div class="cover"><picture><source type="image/webp" srcset="../images/SimplifiedChinese/2.webp"></source><img src="../images/SimplifiedChinese/2.jpg" alt="PocketChampion 公测公告与下载入口" width="1400" height="788" loading="lazy" decoding="async"></picture></div>
     </div>
   </header>
 
@@ -227,7 +224,7 @@
       </div>
     </div>
     <div class="wrap bottom">
-      <span>&copy; 2026 PocketChampion. 保留所有权利。</span>
+      <span>© 2026 PocketChampion. 保留所有权利。</span>
       <span>当前域名：zh.PocketChampion.org</span>
     </div>
   </footer>
